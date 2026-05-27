@@ -21,34 +21,48 @@
              
               <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
-                  <form method="post" class="needs-validation" novalidate="">
+         
                     <div class="card-header">
                       <h4>Edit Profile</h4>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+
+                      <form action="{{ route('profile.update') }}" method="post">
+                            @csrf
+                            @method('patch')
+                       <div class="row">
+
                           <div class="form-group col-md-6 col-12">
-                            <label>First Name</label>
-                            <input type="text" class="form-control" value="Ujang" required="">
-                            <div class="invalid-feedback">
-                              Please fill in the first name
+                          <label>Name</label>
+                          <input type="text" class="form-control" name="name" value="{{old('name',$user->name)}}" required="">
+                            @if ($errors->has('name'))
+                                <code>{{$errors->first('name')}}</code>
+                            @endif
+
+                           </div>
+
+                           <div class="form-group col-md-6 col-12">
+                          <label>Email</label>
+                          <input type="email" class="form-control" name="email" value="{{old('email',$user->email)}}" required="">
+                            @if ($errors->has('email'))
+                                <code>{{$errors->first('email')}}</code>
+                            @endif
+
+                           </div>
+
+                
+                       </div>
+                            <div class="card-footer text-right">
+                            <button class="btn btn-primary">Save Changes</button>
                             </div>
-                          </div>
-                          <div class="form-group col-md-6 col-12">
-                            <label>Last Name</label>
-                            <input type="text" class="form-control" value="Maman" required="">
-                            <div class="invalid-feedback">
-                              Please fill in the last name
-                            </div>
-                          </div>
-                        </div>
+
+                       </form>
+                       
                    
                        
                     </div>
-                    <div class="card-footer text-right">
-                      <button class="btn btn-primary">Save Changes</button>
-                    </div>
-                  </form>
+                   
+              
                 </div>
               </div>
             </div>
