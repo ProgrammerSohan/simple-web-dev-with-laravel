@@ -23,7 +23,7 @@
                 <div class="card">
          
                     <div class="card-header">
-                      <h4>Edit Profile</h4>
+                      <h4>Profile Information</h4>
                     </div>
                     <div class="card-body">
 
@@ -65,6 +65,9 @@
               
                 </div>
               </div>
+              
+
+
             </div>
           </div>
         </section>
